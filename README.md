@@ -15,9 +15,10 @@ are part of the standard library
 Python libraries used by this program:
 
 ```
-argparse
-time 
 sys
+string
+random
+argparse
 ```
 If you already know you have an appropriate version of Python installed on your system, you can skip to Usage
 
