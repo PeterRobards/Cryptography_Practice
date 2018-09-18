@@ -9,7 +9,7 @@ Note: this program was built and optimized for Python 3.x - we recommend Python 
 
 ### Prerequisites
 
-Only Python 3 is essential for running this program, as all the packages used (time, random, math, and argparse)
+Only Python 3 is essential for running this program, as all the packages used (sys, string, random, and argparse)
 are part of the standard library
 
 Python libraries used by this program:
