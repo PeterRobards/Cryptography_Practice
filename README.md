@@ -1,88 +1,258 @@
-# Project Title
+# Cryptography Practice - - Cipher.py
 
-One Paragraph of project description goes here
+This is a simple Python Program developed to allow the encryption and decryption of user supplied plaintext via a variety of simple ciphers.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Note: this program was built and optimized for Python 3.x - we recommend Python Version=3.8.5 
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Only Python 3 is essential for running this program, as all the packages used (time, random, math, and argparse)
+are part of the standard library
+
+Python libraries used by this program:
 
 ```
-Give examples
+argparse
+time 
+sys
+```
+If you already know you have an appropriate version of Python installed on your system, you can skip to Usage
+
+If you know you're missing Python3, you can find download the appropriate package for your OS via the link below.
+If you're unsure, or you have never installed Python before check out the next section about installing python.
+
+* [Python.org](https://www.python.org/getit/) - Get Python 3.x here
+
+
+
+## Installing
+
+First check to see if Python is installed on your system and if so, what version is running. 
+How that process works depends largely on your Operating System (OS).
+
+### Linux
+
+Note: Most Linux distributions come with Python preloaded, but it might not be with the latest version
+ and you could only have Python 2 instead of Python 3 (which is what this program is written in).
+ Double check your system's version by using the following commands:
+```
+# Check the system Python version
+$ python --version
+
+# Check the Python 2 version
+$ python2 --version
+
+# Check the Python 3 version
+$ python3 --version
 ```
 
-### Installing
+### Windows
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+In windows, open ‘cmd’ (Command Prompt) and type the following command.
 
 ```
-Give the example
-```
-
-And repeat
+C:\> python --version
 
 ```
-until finished
+Using the --version switch will show you the version that’s installed. Alternatively, you can use the -V switch:
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+C:\> python -V
 
 ```
-Give an example
+Either of the above commands will give the version number of the Python interpreter installed or they will display an error if otherwise.
+
+### Mac OSX
+
+Starting with Catalina, Python no longer comes pre-installed on most Mac computers, and many older models only
+have Python 2 pre-installed, not Python 3. In order to check the Python version currently installed on your Mac,
+open a command-line application, i.e. Terminal, and type in any of the following commands:
+
+```
+# Check the system Python version
+$ python --version
+
+# Check the Python 2 version
+$ python2 --version
+
+# Check the Python 3 version
+$ python3 --version
+```
+Note:
+You’ll want to either download or upgrade to the latest version of Python if any of the following conditions are true:
+* None of the above commands return a version number on your machine.
+* The only versions you see listed when running the above commands are part of the Python 2.x series.
+* Your version of Python 3 isn’t the latest available, which was version 3.8.5 as writing this.
+
+If Python is not already on your system, or it is not version 3.6x or above, you can find
+detailed installation instructions for your particular OS, here:
+
+Detailed instructions for installing Python3 on Linux, MacOS, and Windows, are available at link below:
+
+* [Python 3 Installation & Setup Guide](https://realpython.com/installing-python/) - How to install Python3
+
+## Usage
+
+Once you have verified that you have Python 3.x installed and running on your system, using this program is
+fairly straight forward. In the same command (or terminal) window that you checked the version number of Python,
+run 'python cipher.py -h' - as shown below there are also a couple of optional arguments:
+
+```
+usage: cipher.py [-h] [-E] [-D] [-f] [-i INPUTFILE] [-o OUTPUTFILE]
+                 [-S {left,right}] [-T {Caesar,Substitution,Vigenere}]
+
+ optional arguments:
+  -h, --help            show this help message and exit
+  -E, --encrypt         Signals that user wants to encrypt text.
+  -D, --decrypt         Signals that user wants to decrypt text.
+  -f, --file            File used as source with results saved to new File.
+  -i INPUTFILE, --input_from_file INPUTFILE
+                        Load text from the provided file name.
+  -o OUTPUTFILE, --output_to_file OUTPUTFILE
+                        Save results to the provided file name.
+  -S {left,right}, --shift {left,right}
+                        Choose between 'right' or 'left' direction for key
+                        shift. Default = "right"
+  -T {Caesar,Substitution,Vigenere}, --type {Caesar,Substitution,Vigenere}
+                       Choose between encryption methods. Default = "Caesar"
+
 ```
 
-### And coding style tests
+If no arguments are specified upon running this program, the program will execute normally using the default settings. 
+The default is to ask for some plaintext to encrypt via a simple Caesar cipher. 
+The optional arguments shown above allow the user to select whether they wish to encrypt plaintext or decrypt some ciphertext.
+Users can select one of three simple ciphers and if they want to either load data from a file or save the results to a file.
 
-Explain what these tests test and why
+Operating System specific instructions are included below:
+
+### Linux
+
+If you're in the same directory as this Python's project file, simply enter the following command:
 
 ```
-Give an example
+# If you only have Python3 installed or Python3 is set as your default
+$ python cipher.py
+or
+$ python cipher.py -h
+
+# If you have both Python2 and Python3 installed and want to specify Python3
+$ python3 cipher.py
+or
+$ python3 cipher.py -h
+```
+If you're not in the directory where this Python's project file is, you can either navigate there, 
+via: cd /Path/to/the/directory/ (substituting the appropriate directory names for your system) and
+run the above command. Or you can instead run the below command from your current directory and 
+just specify the path to the Python project file (.py), like so:
+ 
+```
+# If you only have Python3 installed or Python3 is set as your default
+$ python /Path/to/the/directory/cipher.py
+or
+$ python /Path/to/the/directory/cipher.py -h
+
+# If you have both Python2 and Python3 installed and want to specify Python3
+$ python3 /Path/to/the/directory/cipher.py
+or
+$ python3 /Path/to/the/directory/cipher.py -h
 ```
 
-## Deployment
+### Windows
 
-Add additional notes about how to deploy this on a live system
+On some recent versions of Windows, it's possible to run Python scripts by only entering
+the name of the file containing this project's code at the command prompt:
+```
+C:\> cipher.py
+or
+C:\> cipher.py -h
+```
+If you're in the same directory as this Python's project (.py) file, simply enter the above command,
+or you can directly call the python interpreter via the below command: 
+```
+C:\> python cipher.py
+or
+C:\> python cipher.py -h
+```
+If you're not in the directory where this Python's project file is, you can either navigate there, 
+via: cd /Path/to/the/directory/ (substituting the appropriate directory names for your system) and
+run the above command. Or you can instead run the below command from your current directory and 
+just specify the path to the Python project file (.py), like so:
+```
+C:\> python /Path/to/the/directory/cipher.py
+or
+C:\> python /Path/to/the/directory/cipher.py -h
+```
 
-## Built With
+### MacOS
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+If you're in the same directory as this Python's project file, simply enter the following command:
 
-## Contributing
+```
+# If you only have Python3 installed or Python3 is set as your default
+$ python cipher.py
+or 
+$ python cipher.py -h
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+# If you have both Python2 and Python3 installed and want to specify Python3
+$ python3 cipher.py
+or
+$ python3 cipher.py -h
+```
+If you're not in the directory where this Python's project file is, you can either navigate there, 
+via: cd /Path/to/the/directory/ (substituting the appropriate directory names for your system) and
+run the above command. Or you can instead run the below command from your current directory and 
+just specify the path to the Python project file (.py), like so:
+ 
+```
+# If you only have Python3 installed or Python3 is set as your default
+$ python /Path/to/the/directory/cipher.py
+or
+$ python /Path/to/the/directory/cipher.py -h
 
-## Versioning
+# If you have both Python2 and Python3 installed and want to specify Python3
+$ python3 /Path/to/the/directory/cipher.py
+or
+$ python3 /Path/to/the/directory/cipher.py -h
+```
+Upon the successful execution of this project's python (.py) file, the default execution will resemble 
+something similar to the results shown below (with the values for the plaintext provided by the user and 
+the subsequent ciphertext looking somewhat different depending on the option selected).
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+```
+| ==> python3 cipher.py
 
-## Authors
+	**** Default setting is to Encrypt! ****
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+Please enter text to encrypt
+	:Some Plain text we need to keep secret.
+
+Please enter an integer for Cipher to utilize as a key : 3
+
+Thank You!
+
+	**** ENCRYPTING ****
+
+
+Plain text:
+ Some Plain text we need to keep secret.
+
+	**** SUCCESS! ****
+
+
+Encrypted text:
+ Vrph#Sodlq#whAw#zh#qhhg#wr#nhhs#vhfuhw;
+
+```
+
+## Author
+
+* **Peter Robards** 
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
 
